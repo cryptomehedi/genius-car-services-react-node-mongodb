@@ -1,14 +1,11 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import LoadData from '../hooks/LoadData';
 import Service from './Service';
 
 
 const Services = () => {
-    const [services, setServices] = useState([])
-    useEffect(() => {
-        axios.get('http://localhost:4000/service')
-        .then(data => setServices(data.data))
-    },[])
+    const [services] = LoadData([])
+    
     return (
         <div>
             <h2 className='font-semibold text-center text-4xl my-6'>Our service</h2>

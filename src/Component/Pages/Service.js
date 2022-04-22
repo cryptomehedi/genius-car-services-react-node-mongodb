@@ -14,9 +14,8 @@ const Service = ({service}) => {
             <p>Name: {name}</p>
             <p>Price: ${price}</p>
             <p>Description: <small>{description}</small></p>
-            <button onClick={()=> navigateToServiceDetail(_id)} className="bg-gray-400 mt-4 p-1 rounded">Book for :  {name}</button>
-            
-        </div>
+            <button onClick={()=> navigateToServiceDetail(_id)} className="bg-gray-400 mt-4 p-1 rounded">Book for :  {name}</button>  
+            </div>
         </div>
     );
 };

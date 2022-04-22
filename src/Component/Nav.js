@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { useAuthState, useSendEmailVerification  } from 'react-firebase-hooks/auth';
+import { useAuthState  } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import CustomLink from './CustomLink';
 
@@ -9,7 +9,7 @@ const Nav = () => {
     const handleSignOut = () => {
         signOut(auth)
     }
-    const [sendEmailVerification] = useSendEmailVerification(auth );
+
     
     return (
         <nav>
@@ -19,7 +19,7 @@ const Nav = () => {
                 {
                     user ? 
                     <div className='flex'>
-                        <p className='mx-2'>{user?.emailVerified ? user?.displayName : <button onClick={()=> sendEmailVerification()} className="font-bold mx-2 text-red-500 border-2 px-2 rounded opacity-75">Please Verify Your Email</button>}</p>
+                        <p className='mx-2 text-gray-400'>{user?.displayName ? user?.displayName : user?.email}</p>
                         <button onClick={handleSignOut} className="font-bold mx-2 text-red-500">Sign Out</button>
                     </div>
                     :

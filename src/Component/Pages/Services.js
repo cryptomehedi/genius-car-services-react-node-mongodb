@@ -6,7 +6,7 @@ import Service from './Service';
 const Services = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        axios.get('services.json')
+        axios.get('http://localhost:4000/service')
         .then(data => setServices(data.data))
     },[])
     return (
@@ -14,7 +14,7 @@ const Services = () => {
             <h2 className='font-semibold text-center text-4xl my-6'>Our service</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
                 {
-                    services.map(service => <Service service={service} key={service.id} />)
+                    services.map(service => <Service service={service} key={service._id} />)
                 }
             </div>
         </div>
